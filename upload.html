@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <style>
+       #map {
+        height: 100%;
+       }
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+        #upload{
+            position: absolute;
+        top: 10px;
+        left: 2%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        }
+    </style>
+<meta charset="utf-8">
+  </head>
+  <body>
+    <div id="map"></div>
+            <form id="upload" method="post">
+            Lat:<input id="coordsX" type="text">
+            <br/>
+            Lng:<input id="coordsY" type="text">
+            <hr/>
+            <select id="izDurvo">
+                <option value="Topola">Топола</option>
+                <option value="Lipa">Липа</option>
+                <option value="Breza">Бреза</option>
+                <option value="Vurba">Върба</option>
+            </select>
+
+            <input id="Post" type="button" onclick="upload()" value="Качи">
+        </form>
+    <script src="main1.js"></script>
+      <script>
+          function upload(){
+        var Lat = document.getElementById("coordsX").value;
+        var Lng = document.getElementById("coordsY").value;
+        var Name = document.getElementById('izDurvo').options[document.getElementById('izDurvo').selectedIndex].value;
+              console.log(Lat,Lng,Name);
+              socket.emit("addTree",Lat,Lng,Name);
+          }
+      </script>
+      <a href="add.sh">Run it</a>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI1qbi665fujUiMYlZ4RjTQG2VCxfdQYY&callback=initMap">
+    </script>
+  </body>
+</html>
+
+<!--
+
+-->

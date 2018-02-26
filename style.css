@@ -1,0 +1,18 @@
+#upload{
+    border: 1px solid black;
+    width:  20%;
+}
+
+.coords{
+    width: 45%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+#izDurvo{
+    width: 40%;
+}
+
+#Post{
+    margin-left: 80%;
+}
